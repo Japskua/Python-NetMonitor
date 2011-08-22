@@ -1,0 +1,34 @@
+Author: Janne Parkkila
+Date: 22.08.2011
+
+--------------------------------------------
+The files contained in this project:
+
+-- network-monitor
+	|
+	|
+	-> monitor.py 
+	  * The network connection monitor
+	|
+	|
+	-> pipe.py
+	 * The pipe class, that creates the in/out pipes
+	|
+	|
+	-> reader.py
+	 * The network status reader
+
+
+----------------------------------------
+Explanation:
+
+The <<monitor.py>> monitors the network connection and changes in it. If the network connection changes (3G->WLAN) or the status of the connection changes (disconnected, connected) it automatically writes the result to a pipe.
+
+The <<reader.py>> reads from the pipe the <<monitor.py>> has created. The time frame of reading from the pipe can be defined manually or the default value can be used. 
+
+
+---------------------------------------
+Usage:
+
+> python monitor.py 
+> python reader.py [-u <update interval>]
